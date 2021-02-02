@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+
+<head>
+<title>Funcionários</title>
+</head>
+
+<body>
+<section layout:fragment="conteudo">
+	
+	<div class="titulo">
+		<h2>Funcionários em WA</h2>
+	</div>
+	
+	<form method="GET" class="form-inline">			
+		<div class="search">
+			<input class="form-control mr-sm-2" type="search"
+							placeholder="Busca por nome" aria-label="Search"
+							name="nome">
+			<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Pesquisar</button>
+		</div>
+
+	</form>
+
+	<div class="table-responsive">
+		<table class="table table-sm">
+			<thead>
+				<tr>
+					<th scope="col">Nome</th>
+					<th scope="col">Cargo</th>
+					<th scope="col">Tecnologias</th>
+					<th scope="col">Início WA</th>
+					<th scope="col">Término WA</th>
+				</tr>
+			</thead>
+			<tbody>
+		
+				<tr th:each="funcionario : ${funcionarios}">
+					<td th:text="${funcionario.nome}"></td>
+					<td th:text="${funcionario.cargo}"></td>
+					<!--  </del> <td th:text="${funcionario.tecnologias}"></td> -->
+					<td><span th:each="tecnologia: ${funcionario.tecnologias}"
+							th:text="${tecnologia.nome}"> </span>
+					</td>
+					<td th:text="${{funcionario.inicioWa}}"></td>
+					<td th:text="${{funcionario.terminoWa}}"></td>
+				</tr>
+			
+					<div class="alert alert-danger" role="alert" th:if="${#lists.isEmpty(funcionarios)}">
+						<span>Nenhum funcionário encontrado!</span>
+					</div>
+				</tbody>
+		</table>
+	</div>
+	
+	<div class="button"> <!-- btn-block -->
+		<a class="btn btn-outline-primary btn-lg btn-block" th:href=@{/funcionarios/cadastrar}>Cadastrar Funcionário</a>
+	</div>
+</section>
+
+</body>
+</html>

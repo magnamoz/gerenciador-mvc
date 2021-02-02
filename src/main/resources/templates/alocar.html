@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+
+<head>
+<title>Alocar Funcionário</title>
+</head>
+
+<body>
+	<section layout:fragment="conteudo">
+
+		<div class="titulo">
+			<h2>Alocação de Funcionários</h2>
+		</div>
+
+		<div class="card text-center">
+			<div class="card-header">WA</div>
+			<div class="card-body">
+				<h5 class="card-title">Alocar funcionários</h5>
+				<p class="card-text">Página destinada a alocação de funcionários
+					de acordo com as vagas disponibilizadas</p>
+			</div>
+			<div>
+				<form method="POST" action="/wa/alocar">
+								
+					  <div class="form-group">
+					  	<label><strong>Funcionarios</strong> - Nomes</label>
+					  	<div  th:object="${funcionario}">
+					  		<select class="custom-select" name="funcionario" id="funcionarioSelect"  multiple="multiple">
+					  			<option th:each="funcionarios : ${funcionarios}"
+					  				th:value="${funcionarios.id}"
+									th:text="${funcionarios.nome}">
+					  			</option>
+					  		</select>
+					  	</div>
+					  </div>
+					<div class="form-group">
+						<label><strong>Vagas</strong> - Projetos</label>
+						<div th:object="${vaga}">
+							<select class="custom-select" name="vaga" id="vagaSelected" multiple="multiple">
+								<option th:each="vagas: ${vagas}"
+									th:value="${vagas.id}"
+									th:text="${vagas.projeto}">
+								</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-outline-primary btn-lg">Alocar</button>
+					</div>
+				</form>
+			</div>
+			<div class="card-footer text-muted">Gft Brasil</div>
+		</div>
+
+	</section>
+</body>
+</html>

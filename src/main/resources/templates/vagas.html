@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+
+<head>
+<title>Vagas</title>
+</head>
+
+<body>
+<section layout:fragment="conteudo">
+	
+	<div class="titulo">
+		<h2>Vagas em aberto</h2>
+	</div>
+	
+	<form method="GET" class="form-inline">			
+		<div class="search">
+					<input class="form-control mr-sm-2" type="search"
+							placeholder="Busca por Projeto" aria-label="Search"
+							name="projeto">
+					<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Pesquisar</button>
+			</div>
+
+	</form>
+
+	<div class="table-responsive">
+		<table class="table table-sm">
+			<thead>
+				<tr>
+					<th scope="col">Projeto</th>
+					<th scope="col">Descrição Vaga</th>
+					<th scope="col">Tecnologias</th>
+					<th scope="col">Abertura Vagas</th>
+					<th scope="col">Quantidade Vagas</th>
+					<th scope="col">Código da Vagas</th>
+				</tr>
+			</thead>
+			<tbody>
+		
+				<tr th:each="vaga : ${vagas}">
+					<td th:text="${vaga.projeto}"></td>
+					<td th:text="${vaga.descricaoVaga}"></td>
+					 <!-- <td th:text="${vaga.tecnologias}"></td>-->
+					<td>
+						<span th:each="tecnologia: ${vaga.tecnologias}"
+							th:text="${tecnologia.nome}">
+						</span>
+					</td>
+					<td th:text="${{vaga.aberturaVaga}}"></td>
+					<td th:text="${vaga.qtdVaga}"></td>
+					<td th:text="${vaga.codigoVaga}"></td>
+					
+				</tr>
+			
+					<div class="alert alert-danger" role="alert" th:if="${#lists.isEmpty(vagas)}">
+						<span>Nenhuma vaga encontrada!</span>
+					</div>
+				</tbody>
+		</table>
+	</div>
+	
+	<div class="button"> <!-- btn-block -->
+		<a class="btn btn-outline-primary btn-lg btn-block" th:href=@{/vagas/cadastrar}>Cadastrar vaga</a>
+	</div>
+</section>
+
+</body>
+</html>

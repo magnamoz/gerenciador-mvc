@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="/wa"> <img src="./images/gft.png"
+		th:attr="src=@{/images/gft.png},title=#{logo},alt=#{logo}" width="300"
+		height="50" class="d-inline-block align-top" alt="GFT">
+	</a>
+	<ul class="navbar-nav mr-auto">
+		<li class="nav-item"><a class="nav-link" th:href=@{/funcionarios}>Funcionários</a></li>
+		<li class="nav-item"><a class="nav-link" th:href=@{/vagas}>Vagas</a></li>
+		<li class="nav-item"><a class="nav-link" th:href=@{/alocar}>Alocar</a></li>
+		<li class="nav-item"><a class="nav-link" th:href=@{/historico}>Histórico</a></li>
+	</ul>
+</nav>
+
+</html>

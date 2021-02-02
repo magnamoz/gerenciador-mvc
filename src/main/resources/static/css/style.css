@@ -1,0 +1,55 @@
+/*Página inicial: WA*/
+.jumbotron-fluid {
+	border-radius:5px;
+	margin-top: 15em;
+	text-align:center;
+}
+
+/*Página: Funcionários*/
+.titulo {
+	text-align: center;
+	color:#000099;
+	margin-top: 2em;
+}
+
+.form-inline {
+	margin-top: 2em;
+	margin-bottom: 2em;
+	margin-left: 1.5em;
+}
+
+.table, .button {
+	width: 90%;
+	margin:2em auto;
+}
+
+/*Página: Cadastrar*/
+.form-group {
+	width: 90%;
+	margin:2em auto;
+}
+
+.alert {
+	margin:2em auto;
+	width:90%;
+}
+
+/*campos inválidos*/
+.invalid {
+	color:red;
+	font-weight: bold;
+}
+.invalid input {
+	border: 2px solid #9b0000;
+}
+
+/*Página alocar*/
+.card {
+	margin:2em auto;
+	width:80%;
+}
+
+/*Página histórico*/
+.search  {
+	margin:0 auto;
+}
