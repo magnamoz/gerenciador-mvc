@@ -8,7 +8,7 @@ Projeto desenvolvido para aplicar conceitos aprendidos no estudo do padrão MVC
 - Spring Data JPA
 - Thymeleaf
 
-## :zap:Funcionalidades:
+## ⚙️Funcionalidades:
 - Funcionários: busca por nome, cadastro de novos funcionários
 - Vagas: busca por nome de projeto, cadastro de novas vagas
 - Alocação: alocação de funcionários a vagas cadastradas
